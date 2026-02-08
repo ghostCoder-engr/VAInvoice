@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAInvoice - Professional Invoicing for Virtual Assistants</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="6" width="24" height="20" rx="2" stroke="#6366F1" stroke-width="2"/>
+                        <line x1="4" y1="12" x2="28" y2="12" stroke="#6366F1" stroke-width="2"/>
+                        <line x1="10" y1="16" x2="22" y2="16" stroke="#6366F1" stroke-width="1.5"/>
+                        <line x1="10" y1="20" x2="18" y2="20" stroke="#6366F1" stroke-width="1.5"/>
+                        <circle cx="8" cy="16" r="1" fill="#6366F1"/>
+                        <circle cx="8" cy="20" r="1" fill="#6366F1"/>
+                    </svg>
+                    <span class="logo-text">VAInvoice</span>
+                </div>
+                <div class="tagline">Professional Invoicing for Virtual Assistants</div>
+            </div>
+            <div class="header-right">
+                <button class="btn-header" id="savedClientsBtn">Saved Clients</button>
+                <button class="btn-header" id="savedTemplatesBtn">Templates</button>
+                <button class="btn-header btn-clear" id="clearDataBtn">Clear Data</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="form-section">
+            <div id="successAlert" class="alert alert-success">
+                Invoice generated successfully! Check your downloads.
+            </div>
+
+            <div class="form-header">
+                <div>
+                    <h2>Create Invoice</h2>
+                    <p>Fill in your details to generate a professional invoice</p>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <button class="template-btn active" data-template="hourly">Hourly Rate</button>
+                <button class="template-btn" data-template="project">Project-Based</button>
+                <button class="template-btn" data-template="retainer">Monthly Retainer</button>
+                <button class="btn-load-client" id="loadClientBtn">Load Saved Client</button>
+            </div>
+
+            <form id="invoiceForm">
+                <div class="form-group">
+                    <label>Invoice Currency</label>
+                    <div class="currency-toggle">
+                        <button type="button" class="currency-btn active" data-currency="USD">USD ($)</button>
+                        <button type="button" class="currency-btn" data-currency="PHP">PHP (₱)</button>
+                        <button type="button" class="currency-btn" data-currency="EUR">EUR (€)</button>
+                        <button type="button" class="currency-btn" data-currency="GBP">GBP (£)</button>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Your Information</h3>
+                </div>
+                <div class="form-group">
+                    <label>Your Name / Business Name *</label>
+                    <input type="text" id="vaName" required placeholder="Your Name">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="vaEmail" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" id="vaPhone" placeholder="+63 912 345 6789">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" id="vaAddress" placeholder="City, Country">
+                </div>
+
+                <div class="section-header">
+                    <h3>Client Information</h3>
+                    <button type="button" class="btn-save-client" id="saveClientBtn">Save Client</button>
+                </div>
+                <div class="form-group">
+                    <label>Client Name / Company *</label>
+                    <input type="text" id="clientName" required placeholder="Client Company Name">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Client Email</label>
+                        <input type="email" id="clientEmail" placeholder="client@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Client Country</label>
+                        <input type="text" id="clientCountry" placeholder="United States">
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Invoice Details</h3>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Invoice Number *</label>
+                        <input type="text" id="invoiceNumber" value="INV-001" required>
+                        <small class="helper-text">Auto-increments when saved</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Invoice Date *</label>
+                        <input type="date" id="invoiceDate" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Payment Terms</label>
+                        <select id="paymentTerms">
+                            <option value="Due on Receipt">Due on Receipt</option>
+                            <option value="Net 7">Net 7 Days</option>
+                            <option value="Net 15">Net 15 Days</option>
+                            <option value="Net 30">Net 30 Days</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Services / Line Items</h3>
+                    <button type="button" class="btn-save-template" id="saveTemplateBtn">Save as Template</button>
+                </div>
+                <div class="service-presets">
+                    <div class="preset-chip" data-service="Admin Support">Admin Support</div>
+                    <div class="preset-chip" data-service="Social Media Management">Social Media</div>
+                    <div class="preset-chip" data-service="Customer Service">Customer Service</div>
+                    <div class="preset-chip" data-service="Email Management">Email Management</div>
+                    <div class="preset-chip" data-service="Data Entry">Data Entry</div>
+                    <div class="preset-chip" data-service="Content Writing">Content Writing</div>
+                </div>
+
+                <div class="items-section">
+                    <div class="items-header">
+                        <button type="button" class="add-item-btn" id="addItemBtn">+ Add Line Item</button>
+                    </div>
+                    <div id="itemsContainer">
+                        <div class="item-row">
+                            <div class="form-group">
+                                <label>Description *</label>
+                                <input type="text" class="item-description" required placeholder="Service Description">
+                            </div>
+                            <div class="form-group">
+                                <label>Qty/Hours *</label>
+                                <input type="number" class="item-quantity" value="1" min="0.5" step="0.5" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Rate *</label>
+                                <input type="number" class="item-price" value="0" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Amount</label>
+                                <input type="text" class="item-total" readonly>
+                            </div>
+                            <button type="button" class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tax-section">
+                    <div class="tax-toggle-container">
+                        <label class="tax-toggle">
+                            <input type="checkbox" id="taxToggle">
+                            <span>Add Tax</span>
+                        </label>
+                    </div>
+                    <div id="taxInputSection" style="display: none;">
+                        <div class="form-group">
+                            <label>Tax Rate (%)</label>
+                            <input type="number" id="taxRate" value="0" min="0" max="100" step="0.5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Work Summary (optional)</label>
+                    <textarea id="workSummary" rows="2" placeholder="Brief summary of work performed..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Instructions / Notes *</label>
+                    <textarea id="paymentNotes" required rows="4" placeholder="Example:&#10;Bank: Chase Bank&#10;Account: 1234567890&#10;Routing: 987654321&#10;&#10;Or PayPal: your@email.com"></textarea>
+                </div>
+
+                <div class="totals-summary">
+                    <div class="total-box">
+                        <div class="total-label">Total Amount Due</div>
+                        <div class="total-amount" id="grandTotal">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn-primary btn-download" id="downloadPDFBtn">
+                        Download PDF
+                    </button>
+                    <button type="button" class="btn-secondary btn-share" id="shareInvoiceBtn">
+                        Generate Share Link
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-header">
+                <h2>Live Preview</h2>
+                <div class="preview-actions">
+                    <button class="icon-btn" title="Print" id="previewPrintBtn">Print</button>
+                </div>
+            </div>
+
+            <div class="invoice-preview" id="invoicePreview">
+                <div class="invoice-header">
+                    <div class="invoice-title">INVOICE</div>
+                    <div class="invoice-meta">
+                        <div><strong>Invoice #:</strong> <span id="prevInvoiceNumber">INV-001</span></div>
+                        <div><strong>Date:</strong> <span id="prevInvoiceDate">-</span></div>
+                        <div><strong>Due Date:</strong> <span id="prevDueDate">-</span></div>
+                    </div>
+                </div>
+
+                <div class="invoice-parties">
+                    <div class="party-section">
+                        <h3>From</h3>
+                        <div class="party-info">
+                            <div class="name" id="prevVaName">Your Name</div>
+                            <div id="prevVaEmail">email@example.com</div>
+                            <div id="prevVaPhone"></div>
+                            <div id="prevVaAddress"></div>
+                        </div>
+                    </div>
+                    <div class="party-section">
+                        <h3>Bill To</h3>
+                        <div class="party-info">
+                            <div class="name" id="prevClientName">Client Name</div>
+                            <div id="prevClientEmail"></div>
+                            <div id="prevClientCountry"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="prevWorkSummary" class="work-summary" style="display: none;">
+                    <strong>Work Summary:</strong>
+                    <p id="prevWorkSummaryText"></p>
+                </div>
+
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th style="text-align: center;">Qty/Hours</th>
+                            <th style="text-align: right;">Rate</th>
+                            <th style="text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prevItemsTable">
+                        <tr>
+                            <td>Service Description</td>
+                            <td style="text-align: center;">1</td>
+                            <td class="amount">$0.00</td>
+                            <td class="amount">$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="invoice-totals">
+                    <div class="totals-box">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span id="prevSubtotal">$0.00</span>
+                        </div>
+                        <div class="total-row" id="prevTaxRow" style="display: none;">
+                            <span>Tax (<span id="prevTaxPercent">0</span>%):</span>
+                            <span id="prevTax">$0.00</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>TOTAL:</span>
+                            <span id="prevGrandTotal">$0.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Payment Terms:</span>
+                            <span id="prevPaymentTerms">Due on Receipt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="invoice-notes">
+                    <strong>Payment Instructions:</strong>
+                    <p id="prevNotes">Payment details will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="shareLinkModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share Invoice</h2>
+                <button class="modal-close" id="closeShareModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Your shareable invoice link (view-only):</p>
+                <div class="share-link-container">
+                    <input type="text" id="shareLinkInput" readonly>
+                    <button class="btn-copy" id="copyLinkBtn">Copy Link</button>
+                </div>
+                <p class="share-link-note">This link allows your client to view the invoice without editing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="savedClientsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Saved Clients</h2>
+                <button class="modal-close" id="closeSavedClientsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="savedClientsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="savedTemplatesModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Saved Templates</h2>
+                <button class="modal-close" id="closeSavedTemplatesModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="savedTemplatesList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon success-icon">✓</div>
+            <h2 class="modal-title">Success!</h2>
+            <p class="modal-message" id="modalMessage">
+                Your invoice has been generated.
+            </p>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-secondary" id="modalNewBtn">New Invoice</button>
+                <button class="modal-btn modal-btn-primary" id="modalCloseBtn">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

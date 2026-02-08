@@ -1,0 +1,12 @@
+{
+  "name": "vainvoice",
+  "version": "1.0.0",
+  "description": "Professional Invoicing for Virtual Assistants",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["invoice", "virtual-assistant", "billing", "freelance"],
+  "author": "VAInvoice",
+  "license": "MIT"
+}
