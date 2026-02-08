@@ -192,10 +192,10 @@ VAInvoice/
 - Enhanced CSS for better button interactions
 - Improved development server overlay hiding
 
-## Key Differences from Invoice Simple
+## Key Differences from other Invoice Sites
 
 ### Better for VAs:
-✅ **Client Presets**: Save & reuse client data (Invoice Simple: manual each time)
+✅ **Client Presets**: Save & reuse client data 
 ✅ **Service Templates**: Save common service configurations
 ✅ **Tax Toggle**: Simple on/off with custom rate
 ✅ **Auto-Incrementing**: Invoice numbers increment automatically
