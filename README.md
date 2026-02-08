@@ -3,19 +3,12 @@
 ## Overview
 VAInvoice is a streamlined, VA-focused invoicing web application designed specifically for Virtual Assistants who need to create professional invoices quickly and efficiently. **Now with enhanced branding and improved functionality!**
 
-## Recent Updates (v1.1)
-- ✅ **Added Professional Logo**: Custom SVG invoice icon with branding
-- ✅ **Fixed All JavaScript Bugs**: Resolved undefined variables and event listener issues
-- ✅ **Removed Refresh Button**: Simplified UI with automatic preview updates
-- ✅ **Enhanced Deployment**: Added Vercel configuration files
-- ✅ **Cleaned Code**: Removed debugging and unused functions
-
 ## Key Features
 
 ### 1. **Client Management**
 - **Save Client Presets**: Save frequently used client information (name, email, country, preferred currency)
 - **Quick Load**: Instantly load saved clients to pre-fill invoice details
-- **Easy Access**: Access saved clients from header or within the form
+- **Easy Access**: Access saved clients from the header or within the form
 - **Delete & Manage**: Remove outdated client information as needed
 
 ### 2. **Service Templates**
