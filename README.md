@@ -1,7 +1,14 @@
 # VAInvoice - Professional Invoicing for Virtual Assistants
 
 ## Overview
-VAInvoice is a streamlined, VA-focused invoicing web application designed specifically for Virtual Assistants who need to create professional invoices quickly and efficiently.
+VAInvoice is a streamlined, VA-focused invoicing web application designed specifically for Virtual Assistants who need to create professional invoices quickly and efficiently. **Now with enhanced branding and improved functionality!**
+
+## Recent Updates (v1.1)
+- ✅ **Added Professional Logo**: Custom SVG invoice icon with branding
+- ✅ **Fixed All JavaScript Bugs**: Resolved undefined variables and event listener issues
+- ✅ **Removed Refresh Button**: Simplified UI with automatic preview updates
+- ✅ **Enhanced Deployment**: Added Vercel configuration files
+- ✅ **Cleaned Code**: Removed debugging and unused functions
 
 ## Key Features
 
@@ -33,11 +40,11 @@ VAInvoice is a streamlined, VA-focused invoicing web application designed specif
 - Automatic calculation
 - Clear breakdown in totals
 
-### 5. **Invoice Status Tracking**
-- Draft
-- Sent
-- Paid
-- Visual status badge on invoice preview
+### 5. **Professional Branding**
+- **Custom Logo**: Professional invoice document icon
+- **Consistent Theme**: Indigo color scheme throughout
+- **Clean Design**: Modern, minimalist interface
+- **Responsive**: Works on all devices
 
 ### 6. **Auto-Generated Invoice Numbers**
 - Automatic sequential numbering (INV-001, INV-002, etc.)
@@ -48,7 +55,7 @@ VAInvoice is a streamlined, VA-focused invoicing web application designed specif
 - **Work Summary**: Optional field to describe completed work
 - **Payment Instructions**: Required field for payment details
 - **Payment Terms**: Net 7, 15, 30, or Due on Receipt
-- **Live Preview**: Real-time invoice preview as you type
+- **Live Preview**: Real-time invoice preview as you type (no manual refresh needed)
 - **Multiple Line Items**: Add unlimited service/product lines
 
 ### 8. **Export Options**
@@ -79,6 +86,7 @@ Quick-click chips for common VA services:
 
 2. **Preview** (real-time)
    - See live preview on the right
+   - Preview updates automatically as you type
    - Make adjustments as needed
    - Review totals and calculations
 
@@ -107,7 +115,9 @@ Quick-click chips for common VA services:
 VAInvoice/
 ├── index.html       # Main application structure
 ├── styles.css       # Professional styling
-└── app.js          # All functionality & logic
+├── app.js          # All functionality & logic
+├── vercel.json      # Vercel deployment config
+└── package.json     # Project metadata
 ```
 
 ### Storage
@@ -131,7 +141,7 @@ VAInvoice/
 ## UI/UX Design Principles
 
 ### Clean & Professional
-- No emojis (as requested)
+- Professional logo with invoice icon
 - Clear text labels
 - Professional color scheme (primary: #6366F1 - Indigo)
 - Consistent spacing and typography
@@ -143,7 +153,7 @@ VAInvoice/
 - Fast workflow: Create → Preview → Download/Share
 
 ### Visual Hierarchy
-1. Header: Quick access to saved items
+1. Header: Logo + quick access to saved items
 2. Form: Left side, structured sections
 3. Preview: Right side, real-time updates
 4. Actions: Clear primary buttons at bottom
@@ -152,6 +162,42 @@ VAInvoice/
 - Mobile-first approach
 - Stacks vertically on small screens
 - Maintains usability on all devices
+
+## Deployment
+
+### Quick Deploy Options
+
+**Option 1: Vercel (Recommended)**
+1. Create GitHub repository with all files
+2. Import repository to Vercel
+3. Auto-deploy to `your-app.vercel.app`
+
+**Option 2: Netlify Drop**
+1. Go to app.netlify.com/drop
+2. Drag entire VAInvoice folder
+3. Get instant live URL
+
+**Option 3: GitHub Pages**
+1. Push to GitHub repository
+2. Enable Pages in repository settings
+3. Deploy to `username.github.io/vainvoice`
+
+## Bug Fixes Applied
+
+### JavaScript Issues Resolved:
+- Fixed undefined `statusText` variable in updatePreview function
+- Fixed incorrect tax checkbox ID references (`taxEnabled` → `taxToggle`)
+- Fixed incorrect tax input group ID references (`taxInputGroup` → `taxInputSection`)
+- Removed undefined `statusBadge` variable references
+- Fixed payment notes input ID (`invoiceNotes` → `paymentNotes`)
+- Removed incomplete dangling code fragments
+- Enhanced event listener setup for better reliability
+
+### UI Improvements:
+- Added professional SVG logo with invoice icon
+- Removed non-functional refresh button for cleaner interface
+- Enhanced CSS for better button interactions
+- Improved development server overlay hiding
 
 ## Key Differences from Invoice Simple
 
@@ -162,6 +208,7 @@ VAInvoice/
 ✅ **Auto-Incrementing**: Invoice numbers increment automatically
 ✅ **Work Summary**: Optional field to summarize completed work
 ✅ **Share Links**: Generate view-only links for clients
+✅ **Professional Logo**: Branded invoice document icon
 ✅ **Free & Open**: No subscriptions or limits
 
 ### Simpler:
@@ -169,11 +216,12 @@ VAInvoice/
 ✅ No payment processing integration (focus on invoicing only)
 ✅ No cloud sync complexity
 ✅ Single-page application
+✅ Automatic preview updates (no manual refresh needed)
 
 ## Component Structure
 
 ### Header
-- Logo/Branding (VAInvoice)
+- Logo with invoice icon + "VAInvoice" text
 - Saved Clients button
 - Templates button
 
@@ -190,7 +238,6 @@ VAInvoice/
 10. **Actions**: Download PDF + Generate Share Link
 
 ### Preview Section (Right)
-- Status badge (Draft/Sent/Paid)
 - Invoice header with number, dates
 - From/To parties
 - Work summary (if provided)
@@ -302,7 +349,7 @@ Potential features for future versions:
       "email": "client@example.com",
       "country": "USA",
       "currency": "USD",
-      "savedAt": "2026-02-07T10:00:00.000Z"
+      "savedAt": "2026-02-08T10:00:00.000Z"
     }
   ],
   
@@ -317,7 +364,7 @@ Potential features for future versions:
           "price": "25"
         }
       ],
-      "savedAt": "2026-02-07T10:00:00.000Z"
+      "savedAt": "2026-02-08T10:00:00.000Z"
     }
   ],
   
@@ -327,7 +374,7 @@ Potential features for future versions:
     {
       "id": "INV_1234567892",
       "data": { /* full invoice data */ },
-      "createdAt": "2026-02-07T10:00:00.000Z"
+      "createdAt": "2026-02-08T10:00:00.000Z"
     }
   ]
 }
@@ -335,7 +382,7 @@ Potential features for future versions:
 
 ## Installation & Usage
 
-1. **Download Files**: Get index.html, styles.css, and app.js
+1. **Download Files**: Get index.html, styles.css, app.js, vercel.json, package.json
 2. **Open**: Open index.html in any modern browser
 3. **Use**: Start creating invoices immediately
 4. **No Setup**: No installation, configuration, or accounts needed
