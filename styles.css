@@ -54,7 +54,7 @@ div:contains("127.0.0.1"), div:contains("localhost"), div:contains("5500") {
 header {
     background: white;
     border-bottom: 1px solid var(--gray-200);
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -65,19 +65,15 @@ header {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
 }
 
 .header-left {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    flex: 1;
-    min-width: 0;
 }
 
 .logo {
@@ -109,6 +105,7 @@ header {
     display: flex;
     gap: 0.25rem;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .btn-header {
@@ -935,6 +932,12 @@ header {
 @media (min-width: 640px) {
     .header-content {
         padding: 0 1.5rem;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
+
+    .header-right {
+        justify-content: flex-end;
     }
 
     .logo svg {
