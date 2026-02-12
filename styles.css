@@ -64,61 +64,64 @@ header {
 .header-content {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .logo svg {
     flex-shrink: 0;
+    width: 28px;
+    height: 28px;
 }
 
 .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary);
+    white-space: nowrap;
 }
 
 .tagline {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--gray-600);
     display: none;
 }
 
-@media (min-width: 768px) {
-    .tagline {
-        display: block;
-    }
-}
-
 .header-right {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.25rem;
+    flex-wrap: wrap;
 }
 
 .btn-header {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.6rem;
     background: var(--gray-100);
     color: var(--gray-700);
     border: 1px solid var(--gray-300);
     border-radius: var(--border-radius);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
+    white-space: nowrap;
 }
 
 .btn-header:hover {
@@ -139,22 +142,16 @@ header {
 
 .main-container {
     max-width: 1400px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+    margin: 1rem auto;
+    padding: 0 1rem;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-    .main-container {
-        grid-template-columns: 1fr 1fr;
-    }
+    gap: 1rem;
 }
 
 .form-section, .preview-section {
     background: white;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 }
@@ -163,38 +160,39 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .form-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--gray-900);
     margin-bottom: 0.25rem;
 }
 
 .form-header p {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--gray-600);
 }
 
 .quick-actions {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--gray-200);
 }
 
 .template-btn, .btn-load-client {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     background: white;
     border: 2px solid var(--gray-300);
     border-radius: var(--border-radius);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
+    text-align: center;
 }
 
 .template-btn:hover, .btn-load-client:hover {
@@ -220,17 +218,17 @@ header {
 }
 
 .currency-toggle {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
-    flex-wrap: wrap;
 }
 
 .currency-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     background: white;
     border: 2px solid var(--gray-300);
     border-radius: var(--border-radius);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
@@ -256,7 +254,7 @@ header {
 }
 
 .section-header h3 {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--gray-900);
 }
 
@@ -266,10 +264,11 @@ header {
     color: white;
     border: none;
     border-radius: var(--border-radius);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
+    white-space: nowrap;
 }
 
 .btn-save-client:hover, .btn-save-template:hover {
@@ -283,7 +282,7 @@ header {
 .form-group label {
     display: block;
     margin-bottom: 0.375rem;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--gray-700);
 }
@@ -311,7 +310,7 @@ header {
 .helper-text {
     display: block;
     margin-top: 0.25rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--gray-500);
 }
 
@@ -321,23 +320,11 @@ header {
     gap: 1rem;
 }
 
-@media (min-width: 640px) {
-    .form-row {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
 .service-presets {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
     margin: 1rem 0;
-}
-
-@media (min-width: 640px) {
-    .service-presets {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 .preset-chip {
@@ -346,7 +333,7 @@ header {
     border: 1px solid var(--gray-300);
     border-radius: var(--border-radius);
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -373,7 +360,7 @@ header {
     color: white;
     border: none;
     border-radius: var(--border-radius);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
@@ -395,12 +382,6 @@ header {
     position: relative;
 }
 
-@media (min-width: 640px) {
-    .item-row {
-        grid-template-columns: 2fr 1fr 1fr 1fr auto;
-    }
-}
-
 .item-row .remove-btn {
     position: absolute;
     top: 0.5rem;
@@ -410,16 +391,8 @@ header {
     color: white;
     border: none;
     border-radius: var(--border-radius);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     cursor: pointer;
-}
-
-@media (min-width: 640px) {
-    .item-row .remove-btn {
-        position: static;
-        align-self: end;
-        margin-bottom: 0.5rem;
-    }
 }
 
 .item-row .remove-btn:hover {
@@ -466,29 +439,30 @@ header {
 }
 
 .total-label {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--gray-600);
     margin-bottom: 0.5rem;
 }
 
 .total-amount {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--primary);
 }
 
 .action-buttons {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.75rem;
     margin-top: 2rem;
 }
 
 .btn-primary, .btn-secondary {
-    flex: 1;
+    width: 100%;
     padding: 0.875rem 1.5rem;
     border: none;
     border-radius: var(--border-radius);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
@@ -514,23 +488,22 @@ header {
 }
 
 .preview-section {
-    position: sticky;
-    top: 5.5rem;
-    max-height: calc(100vh - 6.5rem);
-    overflow-y: auto;
+    position: relative;
+    max-height: none;
+    overflow-y: visible;
 }
 
 .preview-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--gray-200);
 }
 
 .preview-header h2 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--gray-900);
 }
 
@@ -540,12 +513,12 @@ header {
 }
 
 .icon-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     background: var(--gray-100);
     color: var(--gray-700);
     border: 1px solid var(--gray-300);
     border-radius: var(--border-radius);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     cursor: pointer;
     transition: all 0.2s;
     pointer-events: auto !important;
@@ -558,7 +531,7 @@ header {
 }
 
 .invoice-preview {
-    padding: 2rem;
+    padding: 1.5rem;
     border: 1px solid var(--gray-200);
     border-radius: var(--border-radius);
     background: white;
@@ -566,22 +539,22 @@ header {
 
 .invoice-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
     border-bottom: 3px solid var(--primary);
 }
 
 .invoice-title {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--primary);
 }
 
 .invoice-meta {
-    text-align: right;
-    font-size: 0.875rem;
+    text-align: left;
+    font-size: 0.8rem;
 }
 
 .invoice-meta > div {
@@ -591,18 +564,12 @@ header {
 .invoice-parties {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-@media (min-width: 640px) {
-    .invoice-parties {
-        grid-template-columns: 1fr 1fr;
-    }
+    gap: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 .party-section h3 {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     color: var(--gray-500);
     margin-bottom: 0.5rem;
@@ -611,13 +578,13 @@ header {
 }
 
 .party-info {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     line-height: 1.6;
 }
 
 .party-info .name {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--gray-900);
     margin-bottom: 0.25rem;
 }
@@ -633,12 +600,12 @@ header {
 .work-summary strong {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--gray-700);
 }
 
 .work-summary p {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--gray-600);
     line-height: 1.5;
 }
@@ -647,25 +614,35 @@ header {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
+    overflow-x: auto;
+    display: block;
+}
+
+.invoice-table thead,
+.invoice-table tbody {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .invoice-table th,
 .invoice-table td {
-    padding: 0.75rem;
+    padding: 0.6rem 0.4rem;
     text-align: left;
     border-bottom: 1px solid var(--gray-200);
+    word-wrap: break-word;
 }
 
 .invoice-table th {
     background: var(--gray-50);
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--gray-700);
     border-bottom: 2px solid var(--primary);
 }
 
 .invoice-table td {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
 }
 
 .invoice-table .amount {
@@ -680,18 +657,19 @@ header {
 }
 
 .totals-box {
-    min-width: 300px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .total-row {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
 }
 
 .total-row.grand-total {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary);
     border-top: 2px solid var(--primary);
@@ -708,12 +686,12 @@ header {
 .invoice-notes strong {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--gray-700);
 }
 
 .invoice-notes p {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--gray-600);
     line-height: 1.6;
     white-space: pre-line;
@@ -739,11 +717,13 @@ header {
 
 .modal-content {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--border-radius);
     max-width: 500px;
     width: 100%;
     box-shadow: var(--shadow-lg);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal-header {
@@ -754,7 +734,7 @@ header {
 }
 
 .modal-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--gray-900);
 }
 
@@ -790,7 +770,7 @@ header {
 
 .modal-title {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--gray-900);
 }
@@ -799,12 +779,14 @@ header {
     text-align: center;
     color: var(--gray-600);
     margin-bottom: 1.5rem;
+    font-size: 0.9rem;
 }
 
 .modal-actions {
     display: flex;
     gap: 0.75rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .modal-btn {
@@ -813,6 +795,7 @@ header {
     border-radius: var(--border-radius);
     font-weight: 500;
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
 .modal-btn-primary {
@@ -835,16 +818,17 @@ header {
 
 .share-link-container {
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
     margin: 1rem 0;
 }
 
 .share-link-container input {
-    flex: 1;
+    width: 100%;
     padding: 0.625rem;
     border: 1px solid var(--gray-300);
     border-radius: var(--border-radius);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
 }
 
 .btn-copy {
@@ -863,7 +847,7 @@ header {
 }
 
 .share-link-note {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--gray-600);
     margin-top: 0.5rem;
 }
@@ -891,10 +875,11 @@ header {
     font-weight: 600;
     color: var(--gray-900);
     margin-bottom: 0.25rem;
+    font-size: 0.9rem;
 }
 
 .saved-item-details {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--gray-600);
 }
 
@@ -906,7 +891,7 @@ header {
 
 .saved-item-actions button {
     padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -926,6 +911,7 @@ header {
     text-align: center;
     padding: 2rem;
     color: var(--gray-500);
+    font-size: 0.9rem;
 }
 
 .alert {
@@ -943,6 +929,151 @@ header {
     background: #D1FAE5;
     border: 1px solid #10B981;
     color: #065F46;
+}
+
+/* Tablet breakpoint (640px - 1023px) */
+@media (min-width: 640px) {
+    .header-content {
+        padding: 0 1.5rem;
+    }
+
+    .logo svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .btn-header {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .form-section, .preview-section {
+        padding: 1.5rem;
+    }
+
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-header p {
+        font-size: 0.875rem;
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .currency-toggle {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-presets {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .action-buttons {
+        flex-direction: row;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: auto;
+        flex: 1;
+    }
+
+    .invoice-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .invoice-meta {
+        text-align: right;
+    }
+
+    .invoice-title {
+        font-size: 2.25rem;
+    }
+
+    .invoice-meta {
+        font-size: 0.875rem;
+    }
+
+    .invoice-parties {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .invoice-table th,
+    .invoice-table td {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .total-row {
+        font-size: 0.875rem;
+    }
+
+    .total-row.grand-total {
+        font-size: 1.5rem;
+    }
+
+    .share-link-container {
+        flex-direction: row;
+    }
+
+    .share-link-container input {
+        flex: 1;
+    }
+}
+
+/* Desktop breakpoint (1024px+) */
+@media (min-width: 1024px) {
+    .tagline {
+        display: block;
+    }
+
+    .main-container {
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-section, .preview-section {
+        padding: 2rem;
+    }
+
+    .preview-section {
+        position: sticky;
+        top: 5.5rem;
+        max-height: calc(100vh - 6.5rem);
+        overflow-y: auto;
+    }
+
+    .invoice-preview {
+        padding: 2rem;
+    }
+
+    .total-amount {
+        font-size: 2rem;
+    }
+
+    .item-row {
+        grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    }
+
+    .item-row .remove-btn {
+        position: static;
+        align-self: end;
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media print {
@@ -989,27 +1120,5 @@ header {
 
     .preview-section {
         position: static;
-    }
-}
-
-@media (max-width: 640px) {
-    .form-section, .preview-section {
-        padding: 1rem;
-    }
-
-    .invoice-preview {
-        padding: 1.5rem;
-    }
-
-    .invoice-title {
-        font-size: 1.75rem;
-    }
-
-    .total-amount {
-        font-size: 1.5rem;
-    }
-
-    .header-right {
-        display: none;
     }
 }
